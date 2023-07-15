@@ -25,6 +25,25 @@ height: 36px;
     color: #d60000;
   }
 }
+.receiptAndPayment .submenu{
+  position: absolute;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px gray ;
+  .submenu__item a{
+    display: inline-block;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    padding: 6px;
+    transition: background-color 0.05s linear;
+    font-size: 14px;
+  }
+  .submenu__item a:hover{
+    background-color: #d6d5d5;
+  }
+}
 `
 
 export const TopHeader:FC = ()=>{
