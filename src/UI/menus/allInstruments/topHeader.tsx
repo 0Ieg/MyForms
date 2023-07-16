@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -25,7 +25,7 @@ height: 36px;
     color: #d60000;
   }
 }
-.receiptAndPayment .submenu{
+.receiptAndPayment .submenu, .serviceAndSupport .submenu{
   position: absolute;
   background-color: #fff;
   padding: 8px;
@@ -44,9 +44,20 @@ height: 36px;
     background-color: #d6d5d5;
   }
 }
+.none{
+  display: none;
+}
 `
 
 export const TopHeader:FC = ()=>{
+  const [RAPIsActive, setRAPIsActive] = useState(false)
+  const RAPSubmenuHandler = ()=>{
+    RAPIsActive?setRAPIsActive(false):setRAPIsActive(true)
+  }
+  const [SASIsActive, setSASIsActive] = useState(false)
+  const SASSubmenuHandler = ()=>{
+    SASIsActive?setSASIsActive(false):setSASIsActive(true)
+  }
   return(
     <TopHeaderStyled>
       <ul className="menu">
@@ -81,13 +92,13 @@ export const TopHeader:FC = ()=>{
           </Link>
         </li>
         <li className="receiptAndPayment">
-          <button  className="item">
+          <button className="item" onMouseEnter={RAPSubmenuHandler} onMouseLeave={RAPSubmenuHandler}>
             <span>Получение и оплата</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </button>
-          <ul className="submenu">
+          <ul className={RAPIsActive?"submenu":"submenu none"}>
             <li className="submenu__item">
               <Link to={'#'}>Доставка курьером</Link>
             </li>
@@ -109,20 +120,20 @@ export const TopHeader:FC = ()=>{
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </button>
-          <ul className="submenu">
-            <li>
+          <ul className={SASIsActive?"submenu":"submenu none"}>
+            <li className="submenu__item">
               <Link to={'#'}>Обмен и возврат</Link>
             </li>
-            <li>
+            <li className="submenu__item">
               <Link to={'#'}>Узнать статус обращения</Link>
             </li>
-            <li>
+            <li className="submenu__item">
               <Link to={'#'}>Сопровождение оброщений</Link>
             </li>
-            <li>
+            <li className="submenu__item">
               <Link to={'#'}>Ремонт и услуги</Link>
             </li>
-            <li>
+            <li className="submenu__item">
               <Link to={'#'}>Сервисные центры производителей</Link>
             </li>
           </ul>
