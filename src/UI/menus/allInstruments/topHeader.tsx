@@ -1,12 +1,15 @@
 import { FC, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TopHeaderStyled = styled.div`
 background-color: #fff;
 height: 36px;
+border-bottom: 1px solid #dcdcdc;
 .menu{
-  display: flex;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: minmax(122px, 172px) 1fr repeat(5, max-content);
   .item{
     height: 36px;
     padding: 8px 12px;
@@ -20,6 +23,9 @@ height: 36px;
       width: 13px;
       fill: #d60000;
     }
+    .fill-black{
+      width: 10px;
+    }
   }
   .item:hover{
     color: #d60000;
@@ -27,6 +33,7 @@ height: 36px;
 }
 .receiptAndPayment .submenu, .serviceAndSupport .submenu{
   position: absolute;
+  z-index: 5;
   background-color: #fff;
   padding: 8px;
   border-radius: 8px;
@@ -91,10 +98,10 @@ export const TopHeader:FC = ()=>{
             <span>Продавать у нас</span>
           </Link>
         </li>
-        <li className="receiptAndPayment">
-          <button className="item" onMouseEnter={RAPSubmenuHandler} onMouseLeave={RAPSubmenuHandler}>
+        <li className="receiptAndPayment" onMouseEnter={RAPSubmenuHandler} onMouseLeave={RAPSubmenuHandler}>
+          <button className="item">
             <span>Получение и оплата</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <svg className="fill-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </button>
@@ -113,10 +120,10 @@ export const TopHeader:FC = ()=>{
             </li>
           </ul>
         </li>
-        <li className="serviceAndSupport">
-          <button  className="item">
+        <li className="serviceAndSupport" onMouseEnter={SASSubmenuHandler} onMouseLeave={SASSubmenuHandler}>
+          <button className="item">
             <span>Сервис и поддержка</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <svg className="fill-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </button>
