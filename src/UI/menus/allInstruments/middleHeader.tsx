@@ -55,6 +55,26 @@ display: flex;
   }
 
 }
+.profile{
+  .profile__button{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    svg{
+      width: 24px;
+      fill: #d60000;
+    }
+    span{
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+  .profile__menu{
+    
+  }
+}
 `
 
 export const MiddleHeader:FC = ()=>{
@@ -86,9 +106,23 @@ export const MiddleHeader:FC = ()=>{
         </Link>
       </div>
       <div className="profile">
-        <button></button>
-        <ul className="submenu">
-
+        <button className="profile__button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 11.5c-1.1 0-2.042-.392-2.825-1.175C8.392 9.542 8 8.6 8 7.5s.392-2.042 1.175-2.825C9.958 3.892 10.9 3.5 12 3.5s2.042.392 2.825 1.175C15.608 5.458 16 6.4 16 7.5s-.392 2.042-1.175 2.825C14.042 11.108 13.1 11.5 12 11.5Zm-6 8c-.55 0-1.02-.196-1.412-.587A1.927 1.927 0 0 1 4 17.5v-.8c0-.567.146-1.088.438-1.563A2.914 2.914 0 0 1 5.6 14.05a14.866 14.866 0 0 1 3.15-1.163A13.776 13.776 0 0 1 12 12.5c1.1 0 2.183.129 3.25.387 1.067.259 2.117.646 3.15 1.163.483.25.87.612 1.162 1.087.292.475.438.996.438 1.563v.8a1.93 1.93 0 0 1-.587 1.413A1.928 1.928 0 0 1 18 19.5H6Z"></path>
+          </svg>
+          <span>Здравствуйте, Олег</span>
+        </button>
+        <ul className="profile__menu">
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
+          <li className="menu__item"></li>
         </ul>
       </div>
       <nav className="menu">
