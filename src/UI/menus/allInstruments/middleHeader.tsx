@@ -113,16 +113,44 @@ export const MiddleHeader:FC = ()=>{
           <span>Здравствуйте, Олег</span>
         </button>
         <ul className="profile__menu">
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
-          <li className="menu__item"></li>
+          <li className="menu__item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 11.5c-1.1 0-2.042-.392-2.825-1.175C8.392 9.542 8 8.6 8 7.5s.392-2.042 1.175-2.825C9.958 3.892 10.9 3.5 12 3.5s2.042.392 2.825 1.175C15.608 5.458 16 6.4 16 7.5s-.392 2.042-1.175 2.825C14.042 11.108 13.1 11.5 12 11.5Zm-6 8c-.55 0-1.02-.196-1.412-.587A1.927 1.927 0 0 1 4 17.5v-.8c0-.567.146-1.088.438-1.563A2.914 2.914 0 0 1 5.6 14.05a14.866 14.866 0 0 1 3.15-1.163A13.776 13.776 0 0 1 12 12.5c1.1 0 2.183.129 3.25.387 1.067.259 2.117.646 3.15 1.163.483.25.87.612 1.162 1.087.292.475.438.996.438 1.563v.8a1.93 1.93 0 0 1-.587 1.413A1.928 1.928 0 0 1 18 19.5H6Z"></path>
+            </svg>
+            <span>Олег</span>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Мой кабинет</Link>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Личные данные</Link>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Мои организации</Link>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Мои заказы</Link>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Избранное</Link>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>Выход</Link>
+          </li>
+          <li className="menu__item">
+            <span>Мои организации</span>
+          </li>
+          <li className="menu__item">
+            <Link to={'#'}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+              </svg>
+              <span>Добавить новую организацию</span>
+            </Link>
+          </li>
+          <li className="menu__item">
+            <span>Заказывайте как юрлицо и получайте вычет до 20% НДС</span>
+          </li>
         </ul>
       </div>
       <nav className="menu">
