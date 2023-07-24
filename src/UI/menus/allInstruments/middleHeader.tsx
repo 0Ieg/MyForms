@@ -10,11 +10,14 @@ height: 100px;
 padding: 12px;
 background-color: white;
 display: flex;
-.logo{
+justify-content: space-between;
+align-items: center;
+gap: 12px;
+.logo img{
   width: 152px;
   height: 76px;
 }
-.description{
+.description img{
   width: 200px;
   height: 48px;
 }
@@ -56,11 +59,14 @@ display: flex;
 
 }
 .profile{
+  /* height: 100%;
+  display: flex; */
   .profile__button{
     background-color: transparent;
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 13px 0;
     cursor: pointer;
     :hover{
       color: #d60000;
@@ -76,11 +82,11 @@ display: flex;
   }
   .profile__menu{
     position: absolute;
+    top: 125px;
     z-index: 5;
     width: 268px;
     height: 366px;
     padding: 6px;
-    margin-top: 12px;
     box-shadow: 0 0 6px grey;
     border-radius: 8px;
     background-color: white;
