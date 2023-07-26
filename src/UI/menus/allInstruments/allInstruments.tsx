@@ -7,6 +7,9 @@ import { BottomHeader } from "./bottomHeader";
 const AllInstrumentsStyled = styled.div`
 background-color: white;
 min-height: 100%;
+.header{
+  overflow: visible;
+}
 .main{
   height: 2000px;
 }
@@ -15,7 +18,7 @@ min-height: 100%;
 export const AllInstruments:FC = ()=>{
   return(
     <AllInstrumentsStyled>
-      <header>
+      <header className="header">
         <TopHeader/>
         <MiddleHeader/>
         <BottomHeader/>

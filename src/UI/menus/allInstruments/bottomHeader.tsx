@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styled from "styled-components";
 
 const BottomHeaderStyled = styled.div`
@@ -8,6 +8,7 @@ padding: 12px;
 position: sticky;
 display: flex;
 align-items: center;
+overflow: visible;
 .comparison button, .favorite{
   background-color: transparent;
   padding: 8px;
@@ -25,6 +26,21 @@ align-items: center;
   }
   :hover{
       color: #d60000;
+  }
+}
+.comparison{
+  position: relative;
+  overflow: visible;
+  .comparison__list{
+    position: absolute;
+    left: -85%;
+    z-index: 5;
+    box-shadow: 0 0 6px gray;
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
   }
 }
 .basket{
@@ -46,9 +62,16 @@ align-items: center;
       color: #d60000;
   }
 }
+.none{
+  display: none;
+}
 `
 
 export const BottomHeader:FC = ()=>{
+  const [isComparison, setIsComparison] = useState(false)
+  const comparisonHandler = ()=>{
+    isComparison?setIsComparison(false):setIsComparison(true)
+  }
   return(
     <BottomHeaderStyled>
       <ul className="catalog">
@@ -58,13 +81,16 @@ export const BottomHeader:FC = ()=>{
         shares
       </ul>
       <div className="search"></div>
-      <div className="comparison">
+      <div className="comparison" onMouseEnter={comparisonHandler} onMouseLeave={comparisonHandler}>
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M6.4 9.2h.2c.77 0 1.4.63 1.4 1.4v7c0 .77-.63 1.4-1.4 1.4h-.2c-.77 0-1.4-.63-1.4-1.4v-7c0-.77.63-1.4 1.4-1.4ZM12 5c.77 0 1.4.63 1.4 1.4v11.2c0 .77-.63 1.4-1.4 1.4-.77 0-1.4-.63-1.4-1.4V6.4c0-.77.63-1.4 1.4-1.4Zm5.6 8c.77 0 1.4.63 1.4 1.4v3.2c0 .77-.63 1.4-1.4 1.4-.77 0-1.4-.63-1.4-1.4v-3.2c0-.77.63-1.4 1.4-1.4Z"></path>
           </svg>
           <span>Сравнение</span>
         </button>
+        <ul className={isComparison?"comparison__list":"comparison__list none"}>
+          <li className="comparison__item">В сравнении пока ничего нет</li>
+        </ul>
       </div>
       <div className="favorite">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
