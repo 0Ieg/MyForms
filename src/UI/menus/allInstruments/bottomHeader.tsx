@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BottomHeaderStyled = styled.div`
@@ -9,6 +10,31 @@ position: sticky;
 display: flex;
 align-items: center;
 overflow: visible;
+.shares{
+  button{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    svg{
+      width: 24px;
+      fill: #d60000;
+    }
+    span{
+      font-size: 16px;
+      font-weight: 700;
+      transition: color 0.05s linear;
+    }
+    :hover span{
+      color: #d60000;
+    }
+  }
+  .shares__list{
+    position: absolute;
+    z-index: 5;
+  }
+}
 .comparison button, .favorite{
   background-color: transparent;
   padding: 8px;
@@ -77,9 +103,37 @@ export const BottomHeader:FC = ()=>{
       <ul className="catalog">
         Catalog
       </ul>
-      <ul className="shares">
-        shares
-      </ul>
+      <div className="shares">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7.5 11a3.372 3.372 0 0 1-2.475-1.025A3.372 3.372 0 0 1 4 7.5c0-.967.342-1.792 1.025-2.475A3.372 3.372 0 0 1 7.5 4c.967 0 1.792.342 2.475 1.025A3.372 3.372 0 0 1 11 7.5c0 .967-.342 1.792-1.025 2.475A3.372 3.372 0 0 1 7.5 11Zm0-2c.417 0 .77-.146 1.062-.438C8.854 8.271 9 7.917 9 7.5c0-.417-.146-.77-.438-1.062A1.444 1.444 0 0 0 7.5 6c-.417 0-.77.146-1.062.438A1.444 1.444 0 0 0 6 7.5c0 .417.146.77.438 1.062.291.292.645.438 1.062.438Zm9 11a3.372 3.372 0 0 1-2.475-1.025A3.372 3.372 0 0 1 13 16.5c0-.967.342-1.792 1.025-2.475A3.372 3.372 0 0 1 16.5 13c.967 0 1.792.342 2.475 1.025A3.372 3.372 0 0 1 20 16.5c0 .967-.342 1.792-1.025 2.475A3.372 3.372 0 0 1 16.5 20Zm0-2c.417 0 .77-.146 1.062-.438.292-.291.438-.645.438-1.062 0-.417-.146-.77-.438-1.062A1.444 1.444 0 0 0 16.5 15c-.417 0-.77.146-1.062.438A1.444 1.444 0 0 0 15 16.5c0 .417.146.77.438 1.062.291.292.645.438 1.062.438ZM4.7 19.3a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7L17.9 4.7a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7L6.1 19.3a.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275Z"></path>
+          </svg>
+          <span>Акции</span>
+        </button>
+        <ul className="shares__list">
+          <li className="shares__item">
+            <Link to={'#'}>Навигатор скидок</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Товары месяца</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Распродажа</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Лови момент</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Скидка для своих</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Стримы</Link>
+          </li>
+          <li className="shares__item">
+            <Link to={'#'}>Наши акции</Link>
+          </li>
+        </ul>
+      </div>
       <div className="search"></div>
       <div className="comparison" onMouseEnter={comparisonHandler} onMouseLeave={comparisonHandler}>
         <button>
