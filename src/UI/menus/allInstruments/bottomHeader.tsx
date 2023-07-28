@@ -11,6 +11,7 @@ display: flex;
 align-items: center;
 overflow: visible;
 .shares{
+  padding: 8px;
   button{
     background-color: transparent;
     display: flex;
@@ -32,7 +33,21 @@ overflow: visible;
   }
   .shares__list{
     position: absolute;
+    top: 48px;
     z-index: 5;
+    padding: 6px;
+    box-shadow: 0 0 6px grey;
+    border-radius: 8px;
+    background-color: white;
+    .shares__item a{
+      display: block;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background-color 0.05 linear;
+      :hover{
+        background-color: #d6d5d5;
+      }
+    }
   }
 }
 .comparison button, .favorite{
@@ -94,6 +109,11 @@ overflow: visible;
 `
 
 export const BottomHeader:FC = ()=>{
+
+  const [isShares, setIsShares] = useState(false)
+  const sharesHandler = ()=>{
+    isShares?setIsShares(false):setIsShares(true)
+  }
   const [isComparison, setIsComparison] = useState(false)
   const comparisonHandler = ()=>{
     isComparison?setIsComparison(false):setIsComparison(true)
@@ -103,14 +123,14 @@ export const BottomHeader:FC = ()=>{
       <ul className="catalog">
         Catalog
       </ul>
-      <div className="shares">
+      <div className="shares" onMouseEnter={sharesHandler} onMouseLeave={sharesHandler}>
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M7.5 11a3.372 3.372 0 0 1-2.475-1.025A3.372 3.372 0 0 1 4 7.5c0-.967.342-1.792 1.025-2.475A3.372 3.372 0 0 1 7.5 4c.967 0 1.792.342 2.475 1.025A3.372 3.372 0 0 1 11 7.5c0 .967-.342 1.792-1.025 2.475A3.372 3.372 0 0 1 7.5 11Zm0-2c.417 0 .77-.146 1.062-.438C8.854 8.271 9 7.917 9 7.5c0-.417-.146-.77-.438-1.062A1.444 1.444 0 0 0 7.5 6c-.417 0-.77.146-1.062.438A1.444 1.444 0 0 0 6 7.5c0 .417.146.77.438 1.062.291.292.645.438 1.062.438Zm9 11a3.372 3.372 0 0 1-2.475-1.025A3.372 3.372 0 0 1 13 16.5c0-.967.342-1.792 1.025-2.475A3.372 3.372 0 0 1 16.5 13c.967 0 1.792.342 2.475 1.025A3.372 3.372 0 0 1 20 16.5c0 .967-.342 1.792-1.025 2.475A3.372 3.372 0 0 1 16.5 20Zm0-2c.417 0 .77-.146 1.062-.438.292-.291.438-.645.438-1.062 0-.417-.146-.77-.438-1.062A1.444 1.444 0 0 0 16.5 15c-.417 0-.77.146-1.062.438A1.444 1.444 0 0 0 15 16.5c0 .417.146.77.438 1.062.291.292.645.438 1.062.438ZM4.7 19.3a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7L17.9 4.7a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7L6.1 19.3a.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275Z"></path>
           </svg>
           <span>Акции</span>
         </button>
-        <ul className="shares__list">
+        <ul className={isShares?"shares__list":"shares__list none"}>
           <li className="shares__item">
             <Link to={'#'}>Навигатор скидок</Link>
           </li>
