@@ -10,6 +10,32 @@ position: sticky;
 display: flex;
 align-items: center;
 overflow: visible;
+.catalog{
+  button{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 320px;
+    height: 44px;
+    background-color: #666;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: background-color 0.05s linear;
+    svg{
+      width: 24px;
+      fill: white;
+    }
+    span{
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    :hover{
+      background-color: #4c4c4c;
+    }
+  }
+}
 .shares{
   padding: 8px;
   button{
@@ -121,7 +147,47 @@ export const BottomHeader:FC = ()=>{
   return(
     <BottomHeaderStyled>
       <ul className="catalog">
-        Catalog
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M4 18a.965.965 0 0 1-.712-.288A.965.965 0 0 1 3 17c0-.283.096-.52.288-.712A.965.965 0 0 1 4 16h16c.283 0 .52.096.712.288A.965.965 0 0 1 21 17c0 .283-.096.52-.288.712A.965.965 0 0 1 20 18H4Zm0-5a.965.965 0 0 1-.712-.288A.965.965 0 0 1 3 12c0-.283.096-.521.288-.713A.967.967 0 0 1 4 11h16a.97.97 0 0 1 .712.287c.192.192.288.43.288.713s-.096.52-.288.712A.965.965 0 0 1 20 13H4Zm0-5a.967.967 0 0 1-.712-.287A.968.968 0 0 1 3 7c0-.283.096-.521.288-.713A.967.967 0 0 1 4 6h16a.97.97 0 0 1 .712.287c.192.192.288.43.288.713a.968.968 0 0 1-.288.713A.967.967 0 0 1 20 8H4Z"></path>
+          </svg>
+          <span>Каталог товаров</span>
+        </button>
+        <ul className="catalog__list">
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+          <li className="catalog__item"><span></span>
+          </li>
+        </ul><span></span>
+        
       </ul>
       <div className="shares" onMouseEnter={sharesHandler} onMouseLeave={sharesHandler}>
         <button>
@@ -179,5 +245,14 @@ export const BottomHeader:FC = ()=>{
         <span>{`${'24 550'} р.`}</span>
       </div>
     </BottomHeaderStyled>
+  )
+}
+
+
+const RightIcon:FC = ()=>{
+  return(
+    <svg className="rightIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
   )
 }
