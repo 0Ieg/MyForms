@@ -35,6 +35,29 @@ overflow: visible;
       background-color: #4c4c4c;
     }
   }
+  .catalog__list{
+    position: absolute;
+    padding: 16px 12px 16px 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 0 0 6px 6px;
+    .catalog__item{
+      height: 40px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: grid;
+      /* grid-template-columns: 34px 1fr 16px; */
+      grid-template-columns: 1fr 16px;
+      transition: all 0.05s linear;
+      :hover{
+        background-color: #f5f5f5;
+      }
+      .rightIcon{
+        width: 16px;
+        fill: #d60000;
+      }
+    }
+  }
 }
 .shares{
   padding: 8px;
@@ -154,37 +177,69 @@ export const BottomHeader:FC = ()=>{
           <span>Каталог товаров</span>
         </button>
         <ul className="catalog__list">
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Инструменты</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Электрика и свет</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Сантехника и инженерные системы</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Ручной инструмент</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Автотовары</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Все для дома</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Крпёж и фурнитура</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Отделочные и стройматериалы</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Офис и дом</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Спорт и туризм</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Станки и промкомпоненты</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Климат и отопление</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Склад</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Клининговое оборудование</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Строительное оборудование</span>
+            <RightIcon/>
           </li>
-          <li className="catalog__item"><span></span>
+          <li className="catalog__item">
+            <span>Расходка, спецодежда и СИЗ</span>
+            <RightIcon/>
           </li>
         </ul><span></span>
         
