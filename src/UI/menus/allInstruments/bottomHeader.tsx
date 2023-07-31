@@ -46,8 +46,7 @@ overflow: visible;
       border-radius: 6px;
       cursor: pointer;
       display: grid;
-      /* grid-template-columns: 34px 1fr 16px; */
-      grid-template-columns: 1fr 16px;
+      grid-template-columns: 34px 1fr 16px;
       transition: all 0.05s linear;
       :hover{
         background-color: #f5f5f5;
@@ -178,66 +177,82 @@ export const BottomHeader:FC = ()=>{
         </button>
         <ul className="catalog__list">
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Инструменты</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Электрика и свет</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Сантехника и инженерные системы</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Ручной инструмент</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Автотовары</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Все для дома</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Крпёж и фурнитура</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Отделочные и стройматериалы</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Офис и дом</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Спорт и туризм</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Станки и промкомпоненты</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Климат и отопление</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Склад</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Клининговое оборудование</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Строительное оборудование</span>
             <RightIcon/>
           </li>
           <li className="catalog__item">
+            <LeftIcon/>
             <span>Расходка, спецодежда и СИЗ</span>
             <RightIcon/>
           </li>
@@ -308,6 +323,15 @@ const RightIcon:FC = ()=>{
   return(
     <svg className="rightIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  )
+}
+
+
+const LeftIcon:FC = ()=>{
+  return(
+    <svg className="leftIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/>
     </svg>
   )
 }
