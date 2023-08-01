@@ -39,7 +39,9 @@ overflow: visible;
     position: absolute;
     padding: 16px 12px 16px 8px;
     border: 1px solid #dcdcdc;
+    background-color: white;
     border-radius: 0 0 6px 6px;
+    width: 320px;
     .catalog__item{
       height: 40px;
       padding: 8px 12px;
@@ -47,13 +49,25 @@ overflow: visible;
       cursor: pointer;
       display: grid;
       grid-template-columns: 34px 1fr 16px;
+      align-items: center;
       transition: all 0.05s linear;
+      font-size: 14px;
       :hover{
         background-color: #f5f5f5;
+        color: #d60000;
+        .rightIcon{
+          opacity: 1;
+        }
+      }
+      .leftIcon{
+        width: 20px;
+        fill: #d60000;
       }
       .rightIcon{
         width: 16px;
         fill: #d60000;
+        opacity: 0;
+        transition: opacity 0.05s linear;
       }
     }
   }
@@ -98,6 +112,28 @@ overflow: visible;
     }
   }
 }
+.search form{
+  height: 40px;
+  display: grid;
+  grid-template-columns: minmax(200px, 512px) 40px;
+  border-radius: 8px;
+  input{
+    border-radius: 8px 0 0 8px;
+    padding: 8px 16px;
+    font-size: 18px;
+  }
+  button{
+    background-color: #666;
+    border-radius: 0px 8px 8px 0;
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+    svg{
+      width: 24px;
+      fill: white;
+    }
+  }
+}
 .comparison button, .favorite{
   background-color: transparent;
   padding: 8px;
@@ -138,6 +174,7 @@ overflow: visible;
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 130px;
   svg{
     width: 24px;
     fill: #d60000;
@@ -290,7 +327,16 @@ export const BottomHeader:FC = ()=>{
           </li>
         </ul>
       </div>
-      <div className="search"></div>
+      <div className="search">
+        <form action="">
+          <input type="text" placeholder="Поиск среди 1 000 000 товаров. Введите запрос"/>
+          <button type='submit'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="m18.9 20.512-5.6-5.6a6.096 6.096 0 0 1-3.8 1.3c-1.817 0-3.354-.629-4.612-1.887C3.628 13.067 3 11.53 3 9.712c0-1.816.629-3.354 1.888-4.613C6.146 3.841 7.683 3.212 9.5 3.212c1.816 0 3.354.63 4.613 1.887 1.258 1.26 1.886 2.797 1.886 4.613a6.096 6.096 0 0 1-1.3 3.8l5.626 5.625a.918.918 0 0 1 .274.675c0 .267-.1.5-.3.7a.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275Zm-9.4-6.3c1.25 0 2.312-.437 3.188-1.312.874-.875 1.311-1.938 1.311-3.188 0-1.25-.437-2.312-1.312-3.188-.875-.874-1.938-1.312-3.187-1.312-1.25 0-2.313.438-3.188 1.312C5.437 7.4 5 8.462 5 9.712c0 1.25.437 2.313 1.312 3.188S8.25 14.212 9.5 14.212Z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
       <div className="comparison" onMouseEnter={comparisonHandler} onMouseLeave={comparisonHandler}>
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
