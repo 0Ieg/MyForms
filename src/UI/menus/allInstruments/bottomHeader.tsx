@@ -10,6 +10,7 @@ padding: 12px;
 position: sticky;
 display: flex;
 align-items: center;
+
 overflow: visible;
 .catalog{
   button{
@@ -125,7 +126,7 @@ overflow: visible;
     border: 1px gray solid;
   }
   input:focus{
-    border: 2px #d60000 solid;
+    border-width: 2px;
     outline: none;
   }
   button{
@@ -139,6 +140,56 @@ overflow: visible;
       fill: white;
     }
   }
+}
+.search .search__history{
+  position: absolute;
+  z-index: 5;
+  max-width: 552px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: auto;
+  box-shadow: 0 2px 8px #bfbfbf;
+  background-color: #fff;
+  padding: 8px;
+.inputs{
+  font-size: 14px;
+  .inputs__title{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span{
+      font-weight: 700;
+    }
+    button{
+      background-color: transparent;
+      cursor: pointer;
+      transition: color 0.05s linear;
+      color: #666;
+      :hover{
+        color: #d60000;
+      }
+    }
+  }
+  .inputs__list{
+    .inputs__item{
+      padding: 8px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background-color 0.05s linear;
+      svg{
+        width: 24px;
+        fill: #666;
+      }
+      :hover{
+        background-color: #dcdcdc;
+      }
+    }
+  }
+}
 }
 .comparison button, .favorite{
   background-color: transparent;
@@ -343,6 +394,45 @@ export const BottomHeader:FC = ()=>{
             </svg>
           </button>
         </form>
+        <div className="search__history">
+          <div className="inputs">
+            <div className="inputs__title">
+              <span>Вы искали</span>
+              <button>Очистить историю поиска</button>
+            </div>
+            <ul className="inputs__list">
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Лобзик</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Гайковерт</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Гравер</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Дрель</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Перфоратор</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Фрезер</span>
+              </li>
+              <li className="inputs__item">
+                <SearchHistorySVG/>
+                <span>Шуруповерт</span>
+              </li>
+            </ul>
+          </div>
+          <div className="goods"></div>
+        </div>
       </div>
       <div className="comparison" onMouseEnter={comparisonHandler} onMouseLeave={comparisonHandler}>
         <button>
@@ -385,6 +475,14 @@ const LeftIcon:FC = ()=>{
   return(
     <svg className="leftIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
       <path d="m2.68 7.676 6.49-6.504a4 4 0 0 1 5.66 5.653l-1.477 1.529-5.006 5.006-1.523 1.472a4 4 0 0 1-5.653-5.66l.001-.002 1.505-1.492.001-.002Zm5.71-2.858a.5.5 0 1 0-.708.707.5.5 0 0 0 .707-.707ZM6.974 6.939a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707ZM5.56 8.354a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm2.828 2.828a.5.5 0 1 0-.707-.707.5.5 0 0 0 .707.707Zm1.414-2.121a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.706-.708.5.5 0 0 0 .707.708Zm-4.242.707a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707Zm1.414-.707a.5.5 0 1 0-.707-.708.5.5 0 0 0 .707.708Zm1.414-2.122a.5.5 0 1 0-.707.707.5.5 0 0 0 .707-.707ZM8.646 3.354l4 4 .708-.708-4-4-.708.708Zm-1.292 9.292-4-4-.708.708 4 4 .708-.708Z"/>
+    </svg>
+  )
+}
+
+const SearchHistorySVG:FC = ()=>{
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="m13 11.6 2.5 2.5a.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275l-2.8-2.8a1.03 1.03 0 0 1-.3-.725V8c0-.283.096-.521.288-.713A.967.967 0 0 1 12 7a.97.97 0 0 1 .713.287A.97.97 0 0 1 13 8v3.6ZM12 21c-2.017 0-3.825-.596-5.425-1.788-1.6-1.191-2.675-2.745-3.225-4.662-.083-.3-.054-.583.088-.85a.947.947 0 0 1 .662-.5.828.828 0 0 1 .763.187c.225.192.379.43.462.713a6.571 6.571 0 0 0 2.513 3.55A6.922 6.922 0 0 0 12 19c1.95 0 3.604-.68 4.962-2.038C18.321 15.604 19 13.95 19 12c0-1.95-.68-3.604-2.038-4.963C15.604 5.679 13.95 5 12 5a6.75 6.75 0 0 0-3.225.8A7.431 7.431 0 0 0 6.25 8H8a.97.97 0 0 1 .713.287A.97.97 0 0 1 9 9a.97.97 0 0 1-.287.712A.968.968 0 0 1 8 10H4a.965.965 0 0 1-.712-.288A.965.965 0 0 1 3 9V5c0-.283.096-.521.288-.713A.967.967 0 0 1 4 4a.97.97 0 0 1 .713.287A.97.97 0 0 1 5 5v1.35a8.73 8.73 0 0 1 3.113-2.475A8.928 8.928 0 0 1 12 3a8.71 8.71 0 0 1 3.513.712 9.168 9.168 0 0 1 2.85 1.925 9.167 9.167 0 0 1 1.925 2.85A8.715 8.715 0 0 1 21 12c0 1.25-.237 2.42-.712 3.512a9.151 9.151 0 0 1-1.925 2.85 9.158 9.158 0 0 1-2.85 1.926A8.715 8.715 0 0 1 12 21Z"></path>
     </svg>
   )
 }
