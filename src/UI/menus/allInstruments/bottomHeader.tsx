@@ -2,6 +2,10 @@ import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import l from '../../../BLL/images/menus/l.jpg'
+import a from '../../../BLL/images/menus/a.jpg'
+import d from '../../../BLL/images/menus/d.jpg'
+import g from '../../../BLL/images/menus/g.jpg'
 
 const BottomHeaderStyled = styled.div`
 background-color: #f5f5f5;
@@ -183,6 +187,45 @@ overflow: visible;
       svg{
         width: 24px;
         fill: #666;
+      }
+      :hover{
+        background-color: #dcdcdc;
+      }
+    }
+  }
+}
+.goods{
+  .goods__title{
+    font-weight: 700;
+    padding: 0 6px;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  .goods__list{
+    .goods__item{
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      grid-template-rows: 20px 1fr;
+      grid-template-areas: 'image description' 'image price';
+      transition: background-color 0.05s linear;
+      .image{
+        width: 80px;
+        height: 72px;
+        grid-area: image;
+        display: inline-block;
+      }
+      .description{
+        line-height: 20px;
+        grid-area: description;
+      }
+      .price{
+        font-weight: 700;
+        font-size: 16px;
+        grid-area: price;
+        margin-top: 4px;
       }
       :hover{
         background-color: #dcdcdc;
@@ -431,7 +474,31 @@ export const BottomHeader:FC = ()=>{
               </li>
             </ul>
           </div>
-          <div className="goods"></div>
+          <div className="goods">
+            <div className="goods__title">Просмотренные товары</div>
+            <ul className="goods__list">
+              <li className="goods__item">
+                <img className="image" src={d}/>
+                <div className="description">Дрель Makita 6413</div>
+                <div className="price">3 890 р.</div>
+              </li>
+              <li className="goods__item">
+                <img className="image" src={a}/>
+                <div className="description">Аккумуляторная дрель-шуруповерт Makita G-серия 18 В DF488DWE</div>
+                <div className="price">9 390 р.</div>
+              </li>
+              <li className="goods__item">
+                <img className="image" src={l}/>
+                <div className="description">Электролобзик Makita 4329</div>
+                <div className="price">5 190 р.</div>
+              </li>
+              <li className="goods__item">
+                <img className="image" src={g}/>
+                <div className="description">Гравер Ryobi ONE+ R18RT-0</div>
+                <div className="price">10 067 р.</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="comparison" onMouseEnter={comparisonHandler} onMouseLeave={comparisonHandler}>
