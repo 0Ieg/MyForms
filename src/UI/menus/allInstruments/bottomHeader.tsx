@@ -127,10 +127,11 @@ overflow: visible;
     border-radius: 8px 0 0 8px;
     padding: 8px 16px;
     font-size: 18px;
-    border: 1px gray solid;
+    border: 2px white solid;
   }
   input:focus{
-    border-width: 2px;
+    border-width: 2px 0 2px 2px;
+    border-color: gray;
     outline: none;
   }
   button{
@@ -304,6 +305,10 @@ export const BottomHeader:FC = ()=>{
   const comparisonHandler = ()=>{
     isComparison?setIsComparison(false):setIsComparison(true)
   }
+  const [isFocus, setIsFocus] = useState(false)
+  const focusHandler = ()=>{
+    isFocus?setIsFocus(false):setIsFocus(true)
+  }
   return(
     <BottomHeaderStyled>
       <ul className="catalog">
@@ -430,14 +435,14 @@ export const BottomHeader:FC = ()=>{
       </div>
       <div className="search">
         <form onSubmit={handleSubmit(formHandler)}>
-          <input {...register('input')} type="text" placeholder="Поиск среди 1 000 000 товаров. Введите запрос"/>
+          <input {...register('input')} type="text" placeholder="Поиск среди 1 000 000 товаров. Введите запрос" onFocus={focusHandler} onBlur={focusHandler} autoComplete="off"/>
           <button type='submit'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="m18.9 20.512-5.6-5.6a6.096 6.096 0 0 1-3.8 1.3c-1.817 0-3.354-.629-4.612-1.887C3.628 13.067 3 11.53 3 9.712c0-1.816.629-3.354 1.888-4.613C6.146 3.841 7.683 3.212 9.5 3.212c1.816 0 3.354.63 4.613 1.887 1.258 1.26 1.886 2.797 1.886 4.613a6.096 6.096 0 0 1-1.3 3.8l5.626 5.625a.918.918 0 0 1 .274.675c0 .267-.1.5-.3.7a.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275Zm-9.4-6.3c1.25 0 2.312-.437 3.188-1.312.874-.875 1.311-1.938 1.311-3.188 0-1.25-.437-2.312-1.312-3.188-.875-.874-1.938-1.312-3.187-1.312-1.25 0-2.313.438-3.188 1.312C5.437 7.4 5 8.462 5 9.712c0 1.25.437 2.313 1.312 3.188S8.25 14.212 9.5 14.212Z"></path>
             </svg>
           </button>
         </form>
-        <div className="search__history">
+        <div className={isFocus?"search__history":"search__history none"}>
           <div className="inputs">
             <div className="inputs__title">
               <span>Вы искали</span>
