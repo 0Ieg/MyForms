@@ -228,9 +228,7 @@ export const MiddleHeader:FC = ()=>{
           </li>
         </ul>
       </div>
-      <nav className="menu">
 
-      </nav>
     </MiddleHeaderStyled>
   )
 }

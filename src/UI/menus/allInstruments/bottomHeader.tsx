@@ -14,7 +14,7 @@ padding: 12px;
 position: sticky;
 display: flex;
 align-items: center;
-
+justify-content: space-between;
 overflow: visible;
 .catalog{
   button{
@@ -309,6 +309,9 @@ export const BottomHeader:FC = ()=>{
   const focusHandler = ()=>{
     isFocus?setIsFocus(false):setIsFocus(true)
   }
+  const cleaner = ()=>{
+    alert('Очистка истории поиска')
+  }
   return(
     <BottomHeaderStyled>
       <ul className="catalog">
@@ -446,7 +449,7 @@ export const BottomHeader:FC = ()=>{
           <div className="inputs">
             <div className="inputs__title">
               <span>Вы искали</span>
-              <button>Очистить историю поиска</button>
+              <button onClick={cleaner}>Очистить историю поиска</button>
             </div>
             <ul className="inputs__list">
               <li className="inputs__item">
