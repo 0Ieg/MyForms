@@ -4,6 +4,7 @@ import { NavItem } from "./commons/navItem";
 import { useSelector } from "react-redux";
 import { StateType } from "../BLL/store";
 import number from "../BLL/images/english/4.png";
+import dictionaryPNG from '../BLL/images/english/dictionarylogo.png'
 
 const NavbarStyled = styled.nav`
 grid-area: navbar;
@@ -33,6 +34,7 @@ export const Navbar:FC = ()=>{
       <NavItem to={'gitLab/forms'} title={'GitLab'} img={'https://gitlab.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg'}/>
       <div className="title">English language</div>
       <NavItem to={'english/numbers'} title={'Numbers'} img={number}/>
+      <NavItem to={'english/dictionary'} title={'Dictionary'} img={dictionaryPNG}/>
     </NavbarStyled>
   )
 }

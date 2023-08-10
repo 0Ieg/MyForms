@@ -16,10 +16,11 @@ height: 100%;
 }
 
 `
-export const Numbers:FC = ()=>{
+const Numbers:FC = ()=>{
   return(
     <NumbersStyled>
       <header className="header">{'This is a random number generator'||'Это генератор рандомных чисел'}</header>
     </NumbersStyled>
   )
 }
+export default Numbers
